@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 
-const Journeys = ({journeys=[], header}) =>
+const Trains = ({journeys=[], header}) =>
   <>
     <h3 className='h4 m-2'>{header}</h3>
     <table className="table">
@@ -24,4 +24,4 @@ const Journeys = ({journeys=[], header}) =>
     </table>
   </>
 
-export default Journeys
+export default Trains
