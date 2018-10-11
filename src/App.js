@@ -1,18 +1,9 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
 import Home from './pages/home'
 import London from './pages/london'
-import endpoints from './constants/endpoints'
-import {
-  londonBridge,
-  elmsteadWoods,
-  mottingham,
-  mottinghamStop,
-  homeStop,
-  elmsteadWoodsStop
-} from './constants/destinations'
+import action from './actions'
 
 class App extends Component {
 
@@ -44,16 +35,9 @@ class App extends Component {
   }
 
   getJourneys = () => {
-    axios.all([
-      axios.get(endpoints.trainJounrney(elmsteadWoods, londonBridge)),
-      axios.get(endpoints.trainJounrney(mottingham, londonBridge)),
-      axios.get(endpoints.trainJounrney(londonBridge, mottingham)),
-      axios.get(endpoints.trainJounrney(londonBridge, elmsteadWoods)),
-      axios.get(endpoints.liveBusUpdate(homeStop)),
-      axios.get(endpoints.liveBusUpdate(elmsteadWoodsStop)),
-      axios.get(endpoints.liveBusUpdate(mottinghamStop))
-    ])
-      .then(axios.spread((fromElmstead, fromMottingham, toElmstead, toMottingham, homeBusStop, elmsteadBusStop, mottinghamBusStop) => {
+
+    action.getJourneys()
+      .then(({fromElmstead, fromMottingham, toElmstead, toMottingham, homeBusStop, elmsteadBusStop, mottinghamBusStop}) => {
 
         this.setState({
           london: {
@@ -77,8 +61,7 @@ class App extends Component {
             }
           }
         })
-      }))
-      .catch(error => console.error('Error:', error))
+      })
   }
 
   render() {
