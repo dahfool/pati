@@ -11,21 +11,21 @@ class App extends Component {
     london: {
       elmstead: {
         trains: [],
-        buses: []
+        buses: {}
       },
       mottingham: {
         trains: [],
-        buses: []
+        buses: {}
       },
     },
     home: {
       elmstead: {
         trains: [],
-        buses: []
+        buses: {}
       },
       mottingham: {
         trains: [],
-        buses: []
+        buses: {}
       }
     }
   }
@@ -47,7 +47,7 @@ class App extends Component {
             },
             mottingham: {
               trains: fromMottingham.data.journeys,
-              buses: []
+              buses: {}
             },
           },
           home: {

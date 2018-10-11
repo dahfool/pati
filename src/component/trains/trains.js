@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import moment from 'moment'
 
 import Table from '../table'
@@ -18,5 +19,10 @@ const Trains = ({journeys=[], header}) =>
       </tbody>
     </Table>
   </>
+
+Trains.propTypes = {
+  journeys: PropTypes.array.isRequired,
+  header: PropTypes.string
+}
 
 export default Trains

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 const Head = ({headers=[]}) =>
   <thead className='thead-dark'>
@@ -8,5 +9,9 @@ const Head = ({headers=[]}) =>
       )}
     </tr>
   </thead>
+
+Head.propTypes = {
+  headers: PropTypes.array.isRequired
+}
 
 export default Head

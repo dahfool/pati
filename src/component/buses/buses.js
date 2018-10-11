@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 import Table from '../table'
 
-const Buses = ({journeys=[]}) =>
+const Buses = ({journeys}) =>
   <Table headers={['Bus', 'Arrive']}>
     {Object.keys(journeys).map((bus, i) =>
       <tbody key={i}>
@@ -15,5 +16,9 @@ const Buses = ({journeys=[]}) =>
       </tbody>
     )}
   </Table>
+
+Buses.propTypes = {
+  journeys: PropTypes.object.isRequired
+};
 
 export default Buses
