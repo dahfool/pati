@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
 import Trains from './component/Trains'
 import endpoints from './constants/endpoints'
@@ -35,9 +35,8 @@ class App extends Component {
       mottingham: {
         trains: [],
         buses: []
-      },
-    },
-    loaded: false
+      }
+    }
   }
 
   componentDidMount() {
@@ -76,82 +75,73 @@ class App extends Component {
               trains: toMottingham.data.journeys,
               buses: mottinghamBusStop.data.departures
             }
-          },
-          loaded: true
+          }
         })
       }))
       .catch(error => console.error('Error:', error))
   };
 
   render() {
-    let { london, home, loaded } = this.state
+    let { london, home } = this.state
 
     return (
-      loaded ?
-        <Router>
-          <div>
-            <ul>
-              <li>
-                <Link to="/">To London Bridge</Link>
-              </li>
-              <li>
-                <Link to="/home">From london Bridge</Link>
-              </li>
-              <li>
-                <Link to="/Buses">Buses</Link>
-              </li>
-            </ul>
-
-            <hr />
-
-            <Route exact path="/" component={() =>
-              <>
-                <header className='h2 m-2'>To London Bridge</header>
-                <Trains
-                  journeys={london.elmstead.trains}
-                  header='Elmsteads Woods'
-                />
-                <Buses
-                  journeys={london.elmstead.buses}
-                />
-                <Trains
-                  journeys={london.mottingham.trains}
-                  header='Mottingham'
-                />
-              </>}
-            />
-            <Route path="/home" component={ () =>
-              <>
-                <header className='h2 m-2'>From London Bridge</header>
-                <Trains
-                  journeys={home.elmstead.trains}
-                  header='Elmsteads Woods'
-                />
-                <Buses
-                  journeys={home.elmstead.buses}
-                />
-                <Trains
-                  journeys={home.mottingham.trains}
-                  header='Mottingham'
-                />
-                <Buses
-                  journeys={home.mottingham.buses}
-                />
-              </>}
-            />
-            <Route path="/buses" component={ () =>
-              <>
-                <header className='h2 m-2'>Buses</header>
-              </>}
-            />
-            <button
-              type='button'
-              className='btn btn-secondary btn-block p-2'
-              onClick={this.getJourneys}>Refresh
-            </button>
-          </div>
-        </Router>
-      : <div>loading</div>
+      <Router>
+        <div>
+          <ul className="nav nav-tabs">
+            <li className="nav-item">
+              <NavLink to="/" className="nav-link">To London Bridge</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/home" className="nav-link">From london Bridge</NavLink>
+            </li>
+          </ul>
+          <Route exact path="/" component={() =>
+            <>
+              <header className='h2 m-2'>To London Bridge</header>
+              <Trains
+                journeys={london.elmstead.trains}
+                header='Elmsteads Woods'
+              />
+              <Buses
+                journeys={london.elmstead.buses}
+              />
+              <Trains
+                journeys={london.mottingham.trains}
+                header='Mottingham'
+              />
+            </>}
+          />
+          <Route path="/home" component={ () =>
+            <>
+              <header className='h2 m-2'>From London Bridge</header>
+              <Trains
+                journeys={home.elmstead.trains}
+                header='Elmsteads Woods'
+              />
+              <Buses
+                journeys={home.elmstead.buses}
+              />
+              <Trains
+                journeys={home.mottingham.trains}
+                header='Mottingham'
+              />
+              <Buses
+                journeys={home.mottingham.buses}
+              />
+            </>}
+          />
+          <Route path="/buses" component={ () =>
+            <>
+              <header className='h2 m-2'>Buses</header>
+            </>}
+          />
+          <button
+            type='button'
+            className='btn btn-secondary btn-block p-2'
+            onClick={this.getJourneys}>Refresh
+          </button>
+        </div>
+      </Router>
     );
   }
 }
