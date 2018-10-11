@@ -6,7 +6,7 @@ import Buses from './buses'
 const setup = (journeys) => {
 
   const component = shallow(<Buses
-    journey={journeys}
+    journeys={journeys}
   />)
 
   return {
@@ -18,7 +18,7 @@ const setup = (journeys) => {
 describe('Buses', () => {
 
   it('Should render', () => {
-    const { component } = setup()
+    const { component } = setup({})
     expect(component.length).toEqual(1)
   })
 

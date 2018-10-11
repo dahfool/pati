@@ -19,6 +19,6 @@ const Buses = ({journeys}) =>
 
 Buses.propTypes = {
   journeys: PropTypes.object.isRequired
-};
+}
 
 export default Buses
