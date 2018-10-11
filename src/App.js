@@ -65,7 +65,7 @@ class App extends Component {
   }
 
   render() {
-    let { london, home } = this.state
+    const { london, home } = this.state
 
     return (
       <Router>
@@ -93,6 +93,3 @@ class App extends Component {
 }
 
 export default App
-
-
-
