@@ -6,7 +6,7 @@ import Table from '../table'
 
 type Props = {
   journeys: Array<Object>,
-  header: String
+  header: string
 }
 
 const Trains = ({journeys=[], header}: Props) =>

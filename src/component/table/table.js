@@ -4,7 +4,7 @@ import * as React from 'react'
 import Head from './head'
 
 type Props = {
-  headers: string,
+  headers: Array<string>,
   children: React.Node,
 }
 

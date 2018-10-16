@@ -2,7 +2,7 @@
 import React from 'react'
 
 type Props = {
-  headers: Array<String>
+  headers: Array<string>
 }
 
 const Head = ({headers=[]}: Props) =>
