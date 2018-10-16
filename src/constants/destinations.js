@@ -1,6 +1,6 @@
-export const londonBridge = 1000139
-export const elmsteadWoods = 1001095
-export const mottingham = 1001200
-export const mottinghamStop = '490001200B'
-export const homeStop = '490005465S'
-export const elmsteadWoodsStop = '490001095N'
+export const londonBridge: string = '1000139'
+export const elmsteadWoods: string = '1001095'
+export const mottingham: string = '1001200'
+export const mottinghamStop: string = '490001200B'
+export const homeStop: string = '490005465S'
+export const elmsteadWoodsStop: string = '490001095N'

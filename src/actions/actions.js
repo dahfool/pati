@@ -1,3 +1,4 @@
+// @flow
 import {
   elmsteadWoods,
   elmsteadWoodsStop,
@@ -6,10 +7,10 @@ import {
   mottingham,
   mottinghamStop
 } from '../constants/destinations'
-import axios from 'axios/index'
+import axios from 'axios'
 import endpoints from '../constants/endpoints'
 
-const getJourneys = () => {
+const getJourneys = ():Promise<any> => {
   return axios.all([
     axios.get(endpoints.trainJounrney(elmsteadWoods, londonBridge)),
     axios.get(endpoints.trainJounrney(mottingham, londonBridge)),
