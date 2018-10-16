@@ -1,7 +1,11 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types';
 
-const Head = ({headers=[]}) =>
+type Props = {
+  headers: Array<String>
+}
+
+const Head = ({headers=[]}: Props) =>
   <thead className='thead-dark'>
     <tr>
       {headers.map((header, i) =>
@@ -9,9 +13,5 @@ const Head = ({headers=[]}) =>
       )}
     </tr>
   </thead>
-
-Head.propTypes = {
-  headers: PropTypes.array.isRequired
-}
 
 export default Head

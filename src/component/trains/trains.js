@@ -1,10 +1,15 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types';
 import moment from 'moment'
 
 import Table from '../table'
 
-const Trains = ({journeys=[], header}) =>
+type Props = {
+  journeys: Array<Object>,
+  header: String
+}
+
+const Trains = ({journeys=[], header}: Props) =>
   <>
     <h3 className='h4 m-2'>{header}</h3>
     <Table headers={['Departs', 'Arrive', 'Duration']}>
@@ -19,10 +24,5 @@ const Trains = ({journeys=[], header}) =>
       </tbody>
     </Table>
   </>
-
-Trains.propTypes = {
-  journeys: PropTypes.array.isRequired,
-  header: PropTypes.string
-}
 
 export default Trains

@@ -1,9 +1,14 @@
+// @flow
 import React from 'react'
 
 import Trains from '../../component/trains'
 import Buses from '../../component/buses'
 
-const London = ({journeys}) =>
+type Props = {
+  journeys: Object
+}
+
+const London = ({journeys}: Props) =>
   <>
     <header className='h2 m-2'>To London Bridge</header>
     <Trains

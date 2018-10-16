@@ -1,11 +1,37 @@
-import React, { Component } from 'react'
+// @flow
+import React from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
 import Home from './pages/home'
 import London from './pages/london'
 import action from './actions'
 
-class App extends Component {
+type Props = {}
+
+type State = {
+  london: {
+    elmstead: {
+      trains: Array<Object>,
+      buses: Object
+    },
+    mottingham: {
+      trains: Array<Object>,
+      buses: Object
+    },
+  },
+  home: {
+    elmstead: {
+      trains: Array<Object>,
+      buses: Object
+    },
+    mottingham: {
+      trains: Array<Object>,
+      buses: Object
+    }
+  }
+}
+
+class App extends React.Component<Props, State> {
 
   state = {
     london: {

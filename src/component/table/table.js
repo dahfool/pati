@@ -1,8 +1,14 @@
-import React from 'react'
+// @flow
+import * as React from 'react'
 
 import Head from './head'
 
-const Table = ({headers, children}) =>
+type Props = {
+  headers: string,
+  children: React.Node,
+}
+
+const Table = ({headers, children}: Props) =>
   <table className='table'>
     <Head headers={headers}/>
     {children}
