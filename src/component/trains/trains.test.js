@@ -41,14 +41,19 @@ describe('Trains', () => {
       expect(header.text()).toEqual('Victoria')
     })
 
-    it('Should have 5 th', () => {
+    it('Should have journey start time', () => {
       const {th} = setup(fixtures)
-      expect(th.length).toEqual(5)
+      expect(th.at(0).text()).toEqual('6:27:00 pm')
     })
 
-    it('Should have 5 td', () => {
+    it('Should have journey arrival time', () => {
       const {td} = setup(fixtures)
-      expect(td.length).toEqual(5)
+      expect(td.at(0).text()).toEqual('6:52:00 pm')
+    })
+
+    it('Should have journey duration', () => {
+      const {td} = setup(fixtures)
+      expect(td.at(1).text()).toEqual('25 min')
     })
 
   })
