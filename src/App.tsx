@@ -75,8 +75,8 @@ const App: React.FC<Props> = () => {
   }
 
   useEffect(() => {
-   // getJourneys()
-  })
+    getJourneys()
+  }, [])
 
   const { london, home } = journey
 
