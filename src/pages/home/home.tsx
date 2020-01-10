@@ -2,12 +2,9 @@ import React from 'react'
 
 import Trains from '../../component/trains'
 import Buses from '../../component/buses'
+import { Props } from '../london/london'
 
-type Props = {
-  journeys: Object
-}
-
-const Home = ({journeys}: Props) =>
+const Home: React.FC<Props> = ({journeys}) =>
   <>
     <header className='h2 m-2'>From London Bridge</header>
     <Trains

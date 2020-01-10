@@ -3,12 +3,18 @@ import moment from 'moment'
 
 import Table from '../table'
 
-type Props = {
-  journeys: Array<Object>,
+export interface Train {
+  startDateTime: string,
+  arrivalDateTime: string,
+  duration: string
+}
+
+interface Props {
+  journeys: Train[],
   header: string
 }
 
-const Trains = ({journeys=[], header}: Props) =>
+const Trains: React.FC<Props> = ({journeys=[], header}) =>
   <>
     <h3 className='h4 m-2'>{header}</h3>
     <Table headers={['Departs', 'Arrive', 'Duration']}>

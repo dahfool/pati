@@ -1,10 +1,10 @@
 import React from 'react'
 
-type Props = {
+interface Props {
   headers: Array<string>
 }
 
-const Head = ({headers=[]}: Props) =>
+const Head: React.FC<Props> = ({headers=[]}) =>
   <thead className='thead-dark'>
     <tr>
       {headers.map((header, i) =>
