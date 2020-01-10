@@ -2,11 +2,11 @@ import React from 'react'
 
 import Table from '../table'
 
-type Props = {
-  journeys: Object
+interface Props {
+  journeys: object
 }
 
-const Buses = ({journeys}: Props) =>
+const Buses: React.FC<Props> = ({journeys}) =>
   <Table headers={['Bus', 'Arrive']}>
     {Object.keys(journeys).map((bus, i) =>
       <tbody key={i}>
